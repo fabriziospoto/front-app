@@ -1,0 +1,44 @@
+<!-- <p>orders works!</p> -->
+<button class="btn btn-success mb-3" (click) = "showInsert()">Aggiungi ordine</button>
+
+<div id="insertElement" style="display:none;">
+    <form (ngSubmit)="insertData()">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" class="form-control" [(ngModel)]="order.name">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" name="description" class="form-control" [(ngModel)]="order.description">
+        </div>
+        <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" name="date" class="form-control" [(ngModel)]="order.date">
+        </div>
+    
+        <button class="btn btn-dark btn-sm mt-4 mb-4">Submit</button>
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Date</th>
+            <th scope="col" style="display: flex; justify-content: center;">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let or of orders">
+            <td scope="row">{{ or.name }}</td>
+            <td scope="row">{{ or.description }}</td>
+            <td scope="row">{{ or.date }}</td>
+            <td scope="row" style="display: flex; justify-content: flex-end;">
+                <button class="btn btn-warning btn-sm" routerLink="/read/{{ or.id }}">Read</button>
+                <button class="btn btn-warning btn-sm mx-2" routerLink="/edit/{{ or.id }}">Edit</button>
+                <button class="btn btn-danger btn-sm" (click)="deleteData(or.id)">Delete</button> 
+            </td>
+        </tr>
+    </tbody>
+</table>

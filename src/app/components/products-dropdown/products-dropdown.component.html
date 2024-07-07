@@ -1,0 +1,12 @@
+<label class="mb-2" for="products">Aggiungi prodotto:</label>
+
+
+<form (ngSubmit)="addProduct()">
+    <select name="products" id="productsId" class="form-control col-sm-10">
+        <option>--Select--</option>
+        <option *ngFor="let prod of products" value="{{ prod.id }}">{{ prod.name }}</option>
+    </select>
+
+    <button class="btn btn-dark btn-sm mt-4 mb-4"> Aggiungi prodotto selezionato</button>
+</form>
+

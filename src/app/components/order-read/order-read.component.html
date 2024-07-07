@@ -1,0 +1,11 @@
+<!-- <p>order-read works!</p> -->
+
+<h1>{{ data[0].name }}</h1>
+<p>{{ data[0].description }}</p>
+<p>{{ data[0].date }}</p>
+<h3>Prodotti associati all'ordine</h3>
+<div *ngFor="let dt of data[0].products">
+    <ul>
+        <li>{{ dt.name }}, {{ dt.price }} €</li>
+    </ul>
+</div>
